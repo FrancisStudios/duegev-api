@@ -1,7 +1,7 @@
 version: '3'
 services:
-  duegevbackend:
-    image: duegevbackend:0.1.0
+  duegevmonolith:
+    image: duegevmonolith:0.1.0
     environment:
       - DUEGEVBACKEND_PORT=80
       - DUEGEVBACKEND_IP=0.0.0.0
