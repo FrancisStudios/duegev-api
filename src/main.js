@@ -15,6 +15,8 @@ DuegevBackendAPI.use(
   })
 );
 
+console.log('Duegev monolith server started');
+
 /* Init Endpoint Services */
 DuegevUserEndpoint.initEndpoint(DuegevBackendAPI);
 DuegevLabelEndpoint.initEndpoint(DuegevBackendAPI);
