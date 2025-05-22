@@ -3,6 +3,7 @@ import process from 'process';
 import cors from 'cors'
 import DuegevUserEndpoint from './API/user.endpoint.js';
 import DuegevLabelEndpoint from './API/label.endpoint.js';
+import MessageInterface from './utils/message.interface.js';
 
 const DuegevBackendAPI = express();
 DuegevBackendAPI.use(cors());
@@ -24,7 +25,7 @@ console.log('Duegev monolith server started');
 
 /* ROOT and basic API definitions */
 DuegevBackendAPI.get('/', function (req, res) {
-  res.send('{ "message": "Welcome to Duegev Monolith" }');
+  res.send(MessageInterface.construct(200, "Welcome to Duegev API finally"));
 });
 
 DuegevBackendAPI.listen(
