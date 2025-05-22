@@ -18,8 +18,8 @@ DuegevBackendAPI.use(
 console.log('Duegev monolith server started');
 
 /* Init Endpoint Services */
-DuegevUserEndpoint.initEndpoint(DuegevBackendAPI);
-DuegevLabelEndpoint.initEndpoint(DuegevBackendAPI);
+// DuegevUserEndpoint.initEndpoint(DuegevBackendAPI);
+// DuegevLabelEndpoint.initEndpoint(DuegevBackendAPI);
 
 
 /* ROOT and basic API definitions */
