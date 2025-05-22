@@ -1,4 +1,4 @@
-import GenericLabelOps from "./actions/generic-label-ops.action.js";
+//import GenericLabelOps from "./actions/generic-label-ops.action.js";
 
 export default class DuegevLabelEndpoint {
     static initEndpoint(DuegevBackendAPI) {

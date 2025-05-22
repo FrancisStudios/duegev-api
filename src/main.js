@@ -1,8 +1,8 @@
 import express from 'express';
 import process from 'process';
 import cors from 'cors'
-import DuegevUserEndpoint from './API/user.endpoint.js';
-import DuegevLabelEndpoint from './API/label.endpoint.js';
+//import DuegevUserEndpoint from './API/user.endpoint.js';
+//import DuegevLabelEndpoint from './API/label.endpoint.js';
 import MessageInterface from './utils/message.interface.js';
 
 const DuegevBackendAPI = express();
