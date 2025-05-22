@@ -12,7 +12,7 @@ services:
       - mongodata:/data/db
     networks: 
       unicumnet: 
-        ipv4_address: 172.20.0.50
+        ipv4_address: 172.20.0.45
 
 # Volumes / Networks setup
 volumes:
