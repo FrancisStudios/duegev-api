@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
-import DBConfig from "./db.config";
-import DuegevAPIConstants from "../../constants";
+import DBConfig from "./db.config.js";
+import DuegevAPIConstants from "../../constants.js";
 
 export default class DataBaseService {
 
