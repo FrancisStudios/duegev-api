@@ -17,6 +17,7 @@ export default class DataBaseService {
             if (error) console.log(DuegevAPIConstants.DbConnectionFailed);
 
             this.connection = db.db(DBConfig.dbName);
+            console.log(DuegevAPIConstants.DbConnectionSuccessful);
         });
     }
 }
