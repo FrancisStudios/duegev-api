@@ -5,7 +5,7 @@ import Response from "../response.collection.js";
 export default class DuegevAPIAuth {
     static initEndpoint(DuegevBackendAPI) {
 
-        const connection = DataBaseService.init();
+        const connection = DataBaseService.init().connection;
 
         /* Simple Queries */
         DuegevBackendAPI.get('/users', (req, res) => {
