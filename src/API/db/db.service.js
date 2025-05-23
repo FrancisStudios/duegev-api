@@ -13,11 +13,13 @@ export default class DataBaseService {
     }
 
     constructor() {
+        console.log('Building database connection');
         MongoClient.connect(DBConfig.URL, (error, db) => {
             if (error) console.log(DuegevAPIConstants.DbConnectionFailed);
-
-            this.connection = db.db(DBConfig.dbName);
-            console.log(DuegevAPIConstants.DbConnectionSuccessful);
+            else {
+                this.connection = db.db(DBConfig.dbName);
+                console.log(DuegevAPIConstants.DbConnectionSuccessful);
+            }
         });
     }
 }
