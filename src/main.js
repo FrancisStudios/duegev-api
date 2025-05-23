@@ -2,6 +2,8 @@ import express from 'express';
 import process from 'process';
 import cors from 'cors'
 import MessageInterface from './utils/message.interface.js';
+import { MongoClient } from 'mongodb';
+import Response from './API/response.collection.js';
 
 const DuegevBackendAPI = express();
 DuegevBackendAPI.use(cors());
@@ -14,11 +16,11 @@ DuegevBackendAPI.use(
   })
 );
 
-console.log('Duegev monolith server started');
+console.log('🌱 Duegev monolith server started 🌱');
 
-/* ROOT and basic API definitions */
+/* API PATHS */
 DuegevBackendAPI.get('/', function (req, res) {
-  res.send(MessageInterface.construct(200, "Welcome to Duegev API finally"));
+  res.send(MessageInterface.construct(Response.STATUS.OK, Response.MESSAGE.ROOT_MESSAGE));
 });
 
 DuegevBackendAPI.listen(
