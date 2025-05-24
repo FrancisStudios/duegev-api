@@ -36,6 +36,7 @@ export default class DataBaseService {
 
     async getConnection() {
         await this.connection;
+        console.log('connection is:', this.connection);
         return this.connection;
     }
 }
