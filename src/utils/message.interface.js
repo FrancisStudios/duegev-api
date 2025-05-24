@@ -6,10 +6,22 @@ export default class MessageInterface {
      * @returns 
      */
     static construct(status, message) {
+
+        let quotes;
+
+        typeof message == string
+            ? quotes = 'on'
+            : quotes = 'off'
+
+        let quoteSign =
+            quotes == 'on'
+                ? '"'
+                : ''
+
+
         return `{
-        "status": "${status}"
-        "message": "${message}"
-        }`;
+        "status": "${status}",
+        "message": ${quoteSign}${messagequoteSign}`;
     }
 
 }
