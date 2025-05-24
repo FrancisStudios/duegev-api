@@ -6,8 +6,10 @@ export default class DuegevAPIAuth {
     static async initEndpoint(DuegevBackendAPI) {
 
         const dbService = await DataBaseService.init();
-        const connection = await dbService.getConnection().then(revult=>{
-            console.log('ryesult', revult);
+        const connection = await dbService.getConnection().then(result => {
+            result.collection('users').findOne({ username: 'francis' }).then(r => {
+                console.log('ryesult2: ', r)
+            })
         });
 
         /* Simple Queries */
