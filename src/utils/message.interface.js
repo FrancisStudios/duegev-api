@@ -18,6 +18,9 @@ export default class MessageInterface {
                 ? '"'
                 : ''
 
+        quotes == 'on'
+            ? message = message
+            : message == JSON.stringify(message)
 
         return `{
         "status": "${status}",
