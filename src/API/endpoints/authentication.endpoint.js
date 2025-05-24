@@ -31,15 +31,7 @@ export default class DuegevAPIAuth {
                             )
                     )
                 });
-            })
-
-            res.send(
-                MessageInterface
-                    .construct(
-                        Response.STATUS.OK,
-                        "loading..."
-                    )
-            )
+            });
         });
 
         /* Authenticate Operations */
