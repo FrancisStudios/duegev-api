@@ -9,8 +9,6 @@ export default class DataBaseService {
 
     static async init() {
         if (!this.instance) this.instance = new DataBaseService();
-        
-        await this.connection;
         return this.instance;
     }
 
@@ -33,17 +31,11 @@ export default class DataBaseService {
             .catch((error) => {
                 /* Connection Failed */
                 console.log(DuegevAPIConstants.DbConnectionUpFailed);
-            })
+            });
+    }
 
-
-        // console.log(DuegevAPIConstants.DbConnectionBuilding);
-
-        // MongoClient.connect(DBConfig.URL, (error, db) => {
-        //     if (error) console.log(DuegevAPIConstants.DbConnectionUpFailed);
-        //     else {
-        //         this.connection = db.db(DBConfig.dbName);
-        //         console.log(DuegevAPIConstants.DbConnectionSuccessful);
-        //     }
-        // });
+    async getConnection() {
+        await this.connection;
+        return this.connection;
     }
 }

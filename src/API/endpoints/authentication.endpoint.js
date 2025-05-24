@@ -5,7 +5,8 @@ import Response from "../response.collection.js";
 export default class DuegevAPIAuth {
     static async initEndpoint(DuegevBackendAPI) {
 
-        const connection = await DataBaseService.init().connection;
+        const dbService = await DataBaseService.init();
+        const connection = await dbService.getConnection();
 
         /* Simple Queries */
         DuegevBackendAPI.get('/users', (req, res) => {
@@ -15,7 +16,13 @@ export default class DuegevAPIAuth {
             //let allUsers = connection.collection('users').find({});
             //let responseData = JSON.stringify(allUsers);
 
-            res.send(MessageInterface.construct(Response.STATUS.OK, JSON.stringify(connection)))
+            res.send(
+                MessageInterface
+                    .construct(
+                        Response.STATUS.OK,
+                        JSON.stringify(connection)
+                    )
+            )
         });
 
         /* Authenticate Operations */
