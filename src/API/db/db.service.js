@@ -4,8 +4,13 @@ import DuegevAPIConstants from "../../constants.js";
 
 export default class DataBaseService {
 
+    connectionResolve; connectionReject
+
     instance
-    connection
+    connection = new Promise((resolve, reject) => {
+        this.connectionResolve = resolve;
+        this.connectionReject = reject;
+    });
 
     static async init() {
         if (!this.instance) this.instance = new DataBaseService();
@@ -26,12 +31,7 @@ export default class DataBaseService {
             .then((db) => {
                 /* Connection Established */
                 console.log(DuegevAPIConstants.DbConnectionSuccessful);
-                this.connection = db;
-
-                db.collection('users').findOne({ username: 'Francis' }).then(result => {
-                    console.log('result:', result);
-                })
-
+                this.connectionResolve(db);
             })
             .catch((error) => {
                 /* Connection Failed */
@@ -40,7 +40,6 @@ export default class DataBaseService {
     }
 
     async getConnection() {
-        await this.connection;
         return this.connection;
     }
 }
