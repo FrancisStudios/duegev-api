@@ -26,7 +26,7 @@ export default class DataBaseService {
             .then((db) => {
                 /* Connection Established */
                 console.log(DuegevAPIConstants.DbConnectionSuccessful);
-                this.connection = db;
+                this.connection = new Promise((resolve, reject) => { resolve(db) });
             })
             .catch((error) => {
                 /* Connection Failed */
