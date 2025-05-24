@@ -7,19 +7,41 @@ export default class DataBaseService {
     instance
     connection
 
-    static init() {
+    static async init() {
         if (!this.instance) this.instance = new DataBaseService();
         return this.instance;
     }
 
     constructor() {
-        console.log('Building database connection');
-        MongoClient.connect(DBConfig.URL, (error, db) => {
-            if (error) console.log(DuegevAPIConstants.DbConnectionFailed);
-            else {
-                this.connection = db.db(DBConfig.dbName);
+
+        const client = new MongoClient(DBConfig.URL);
+        const databaseConnection = async () => {
+            console.log(DuegevAPIConstants.DbConnectionBuilding);
+            await client.connect();
+            const db = client.db(DBConfig.dbName);
+            return db;
+        }
+
+        databaseConnection()
+            .then((db) => {
+                /* Connection Established */
                 console.log(DuegevAPIConstants.DbConnectionSuccessful);
-            }
-        });
+                this.connection = db;
+            })
+            .catch((error) => {
+                /* Connection Failed */
+                console.log(DuegevAPIConstants.DbConnectionUpFailed);
+            })
+
+
+        // console.log(DuegevAPIConstants.DbConnectionBuilding);
+
+        // MongoClient.connect(DBConfig.URL, (error, db) => {
+        //     if (error) console.log(DuegevAPIConstants.DbConnectionUpFailed);
+        //     else {
+        //         this.connection = db.db(DBConfig.dbName);
+        //         console.log(DuegevAPIConstants.DbConnectionSuccessful);
+        //     }
+        // });
     }
 }

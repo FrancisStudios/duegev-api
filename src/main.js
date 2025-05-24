@@ -20,7 +20,7 @@ DuegevBackendAPI.use(
 console.log('🌱 Duegev monolith server started 🌱');
 
 /* Init services */
-DataBaseService.init();
+await DataBaseService.init();
 
 /* Init Endpoints */
 DuegevBackendAPI.get('/', function (req, res) {
