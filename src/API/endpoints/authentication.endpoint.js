@@ -10,11 +10,12 @@ export default class DuegevAPIAuth {
         /* Simple Queries */
         DuegevBackendAPI.get('/users', (req, res) => {
 
+            console.log(connection);
             /* TODO: this is a test query, but we should list all users and user finder from the GET endpoint */
-            let allUsers = connection.collection('users').find({});
-            let responseData = JSON.stringify(allUsers);
+            //let allUsers = connection.collection('users').find({});
+            //let responseData = JSON.stringify(allUsers);
 
-            res.send(MessageInterface.construct(Response.STATUS.OK, responseData))
+            res.send(MessageInterface.construct(Response.STATUS.OK, JSON.stringify(connection)))
         });
 
         /* Authenticate Operations */
