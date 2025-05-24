@@ -28,8 +28,10 @@ export default class DataBaseService {
                 console.log(DuegevAPIConstants.DbConnectionSuccessful);
                 this.connection = db;
 
-                let result = db.collection('users').findOne({ username: 'Francis' });
-                console.log('result:', result);
+                db.collection('users').findOne({ username: 'Francis' }).then(result => {
+                    console.log('result:', result);
+                })
+
             })
             .catch((error) => {
                 /* Connection Failed */
