@@ -20,7 +20,7 @@ export default class DuegevAPIAuth {
             //let responseData = JSON.stringify(allUsers);
 
             connection.then((db) => {
-                db.collection('users').findOne({}).then(result => {
+                db.collection('users').find({}).toArray().then(result => {
                     res.send(
                         MessageInterface
                             .construct(
