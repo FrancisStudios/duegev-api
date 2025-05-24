@@ -24,7 +24,8 @@ export default class MessageInterface {
 
         return `{
         "status": "${status}",
-        "message": ${quoteSign}${message}${quoteSign}`;
+        "message": ${quoteSign}${message}${quoteSign}
+        }`;
     }
 
 }
