@@ -28,7 +28,7 @@ export default class DataBaseService {
                 console.log(DuegevAPIConstants.DbConnectionSuccessful);
                 this.connection = db;
 
-                console.log(db.collection('users').find({}), this.connection.collection('users').find({}));
+                console.log(db.collection('users').find({}));
             })
             .catch((error) => {
                 /* Connection Failed */
