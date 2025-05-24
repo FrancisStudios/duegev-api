@@ -21,11 +21,12 @@ export default class DuegevAPIAuth {
 
             connection.then((db) => {
                 db.collection('users').find({}).toArray().then(result => {
+                    const response = JSON.stringify(result);
                     res.send(
                         MessageInterface
                             .construct(
                                 Response.STATUS.OK,
-                                result
+                                response
                             )
                     )
                 });
