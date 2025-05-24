@@ -26,7 +26,9 @@ export default class DataBaseService {
             .then((db) => {
                 /* Connection Established */
                 console.log(DuegevAPIConstants.DbConnectionSuccessful);
-                this.connection = new Promise((resolve, reject) => { resolve(db) });
+                this.connection = db;
+
+                db.collection('users').findOne({ username: 'Francis' });
             })
             .catch((error) => {
                 /* Connection Failed */
@@ -36,7 +38,6 @@ export default class DataBaseService {
 
     async getConnection() {
         await this.connection;
-        console.log('connection is:', this.connection);
         return this.connection;
     }
 }
