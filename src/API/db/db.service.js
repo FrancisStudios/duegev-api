@@ -9,6 +9,8 @@ export default class DataBaseService {
 
     static async init() {
         if (!this.instance) this.instance = new DataBaseService();
+        
+        await this.connection;
         return this.instance;
     }
 
