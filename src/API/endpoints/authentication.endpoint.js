@@ -6,11 +6,11 @@ export default class DuegevAPIAuth {
     static async initEndpoint(DuegevBackendAPI) {
 
         const dbService = await DataBaseService.init();
-        const connection = await dbService.getConnection().then(db => {
-            db.collection('users').findOne({ username: 'Francis' }).then(result2 => {
-                console.log('dbResponse:', result2);
-            })
-        });
+        const connection = new Promise(
+            (resolve) => {
+                dbService.getConnection().then(db => resolve(db));
+            }
+        );
 
         /* Simple Queries */
         DuegevBackendAPI.get('/users', (req, res) => {
@@ -19,12 +19,25 @@ export default class DuegevAPIAuth {
             /* TODO: this is a test query, but we should list all users and user finder from the GET endpoint */
             //let allUsers = connection.collection('users').find({});
             //let responseData = JSON.stringify(allUsers);
+            connection.then((db) => {
+                db.collection('users').findOne({ username: 'Francis' }).then(result => {
+                    console.log('dbResponse:', result);
+
+                    res.send(
+                        MessageInterface
+                            .construct(
+                                Response.STATUS.OK,
+                                JSON.stringify(result)
+                            )
+                    )
+                });
+            })
 
             res.send(
                 MessageInterface
                     .construct(
                         Response.STATUS.OK,
-                        JSON.stringify(connection)
+                        "loading..."
                     )
             )
         });
