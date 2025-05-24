@@ -26,7 +26,8 @@ export default class DuegevAPIAuth {
                         MessageInterface
                             .construct(
                                 Response.STATUS.OK,
-                                response
+                                response,
+                                true
                             )
                     )
                 });

@@ -6,11 +6,16 @@ export default class MessageInterface {
      * @param {boolean} json 
      * @returns 
      */
-    static construct(status, message, json) {
+    static construct(status, message, json=false) {
+        let closureSign;
+        json
+            ? closureSign = ''
+            : closureSign = '"'
+        let cs = closureSign
 
         return `{
         "status": "${status}",
-        "message": ${message}
+        "message": ${cs}${message}${cs}
         }`;
     }
 
