@@ -9,7 +9,7 @@ export default class MessageInterface {
 
         let quotes;
 
-        typeof message == string
+        typeof message == 'string'
             ? quotes = 'on'
             : quotes = 'off'
 
