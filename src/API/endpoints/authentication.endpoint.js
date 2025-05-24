@@ -21,8 +21,6 @@ export default class DuegevAPIAuth {
             //let responseData = JSON.stringify(allUsers);
             connection.then((db) => {
                 db.collection('users').findOne({ username: 'Francis' }).then(result => {
-                    console.log('dbResponse:', result);
-
                     res.send(
                         MessageInterface
                             .construct(
