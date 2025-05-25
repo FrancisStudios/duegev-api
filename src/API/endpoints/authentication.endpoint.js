@@ -19,6 +19,9 @@ export default class DuegevAPIAuth {
             //let allUsers = connection.collection('users').find({});
             //let responseData = JSON.stringify(allUsers);
 
+            /* TODO: maybe do an elevated Promise for connection (similarly to db service) */
+            /* and do a parameter after users to find specified user */
+
             connection.then((db) => {
                 db.collection('users').find({}).toArray().then(result => {
                     const response = JSON.stringify(result);
