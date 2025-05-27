@@ -16,10 +16,10 @@ export default class DuegevAPIAuth {
         /* Request all users or a specific user (?user=username) */
         DuegevBackendAPI.get('/users', (req, res) => {
 
-            let userFindQuery = {};
+            let userFindQuery;
 
             req.query.user
-                ? userFindQuery = { name: req.query.user }
+                ? userFindQuery = { username: req.query.user }
                 : userFindQuery = {};
 
             connection.then((db) => {
