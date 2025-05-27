@@ -1,3 +1,4 @@
+import DuegevAPIConstants from "../../constants.js";
 import MessageInterface from "../../utils/message.interface.js";
 import DataBaseService from "../db/db.service.js";
 import Response from "../response.collection.js";
@@ -12,20 +13,23 @@ export default class DuegevAPIAuth {
             }
         );
 
-        /* Simple Queries */
+        /* Request all users or a specific user (?user=username) */
         DuegevBackendAPI.get('/users', (req, res) => {
 
-            if(req.query.user) console.log(MessageInterface.construct(Response.OK, req.query.user));
+            let userFindQuery = {};
 
-            /* TODO: this is a test query, but we should list all users and user finder from the GET endpoint */
-            //let allUsers = connection.collection('users').find({});
-            //let responseData = JSON.stringify(allUsers);
-
-            /* TODO: maybe do an elevated Promise for connection (similarly to db service) */
-            /* and do a parameter after users to find specified user */
+            req.query.user
+                ? userFindQuery = { name: req.query.user }
+                : userFindQuery = {};
 
             connection.then((db) => {
-                db.collection('users').find({}).toArray().then(result => {
+                db.collection('users').find(userFindQuery).toArray().then(result => {
+
+                    console.log(
+                        DuegevAPIConstants.RequestToUsersEndpoint,
+                        req.query.user ? ` for following user ${req.query.user}` : ``
+                    );
+
                     const response = JSON.stringify(result);
                     res.send(
                         MessageInterface
@@ -46,7 +50,6 @@ export default class DuegevAPIAuth {
                 payload: req.body.query
             }
 
-            console.log(`Auth endpoint was hit with [${inbound.intent}]`);
 
             switch (inbound.intent) {
 
