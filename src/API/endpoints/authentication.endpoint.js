@@ -15,7 +15,7 @@ export default class DuegevAPIAuth {
         /* Simple Queries */
         DuegevBackendAPI.get('/users', (req, res) => {
 
-            if(req.query.user) MessageInterface.construct(Response.OK, req.query.user);
+            if(req.query.user) console.log(MessageInterface.construct(Response.OK, req.query.user));
 
             /* TODO: this is a test query, but we should list all users and user finder from the GET endpoint */
             //let allUsers = connection.collection('users').find({});
