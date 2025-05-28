@@ -27,7 +27,7 @@ export default class DuegevAPIAuth {
 
                     console.log(
                         DuegevAPIConstants.RequestToUsersEndpoint,
-                        req.query.user ? ` for following user ${req.query.user}` : ``
+                        req.query.user ? `for following user ${req.query.user}` : ``
                     );
 
                     const response = JSON.stringify(result);
