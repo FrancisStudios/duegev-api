@@ -12,8 +12,17 @@ This file contains the table of contents, so you can start from here. You will f
 
 ## Table of contents 📋
 
-
+- [1. 🔒 Authentication]()
+- [2. 👤 Search users ](./docs/users.endpoint.md)
+- [3. 🔑 Create users ]()
+- [4. 📃 Create, Read, Update, Delete articles (documents) ]()
+- [5. 🔍 Search for articles (documents)]()
+- [4. 🏷️ Create, Read, Update, Delete labels and categories ]()
+- [6. 🖼️ Upload, Get, List images ]()
+- [7. 🗺️ Game map ]()
+- [8. 📖 Dictionaries ]()
 
 ## API Paths 🛣️
 You can access the following paths on this API
 - ``@/`` [ROOT] this will return a test response - you can check your connection
+- ``@/users`` you can list all users or search for a specific user
