@@ -1,4 +1,5 @@
 import DuegevAPIConstants from "../../constants.js";
+import Intents from "../../model/intents.js";
 import MessageInterface from "../../utils/message.interface.js";
 import DataBaseService from "../db/db.service.js";
 import Response from "../response.collection.js";
@@ -43,37 +44,28 @@ export default class DuegevAPIAuth {
             });
         });
 
-        /* Authenticate Operations */
+        /* Authenticated User Operations */
         DuegevBackendAPI.post('/auth', (req, res) => {
             let inbound = {
                 intent: req.body.intent,
                 payload: req.body.query
             }
 
-
             switch (inbound.intent) {
-
-                /* CREATE */
-                case 'create_user':
+                /* Create Users */
+                case Intents.createUser:
                     break;
 
-                /* READ */
-                case 'authenticate_user':
+                /* Authenticate Users */
+                case Intents.authenticateUser:
                     break;
 
-                case 'get_user_by_id':
+                /* Update Users */
+                case Intents.updateUser:
                     break;
 
-                case 'get_all_users':
-                    break;
-
-
-                /* UPDATE */
-                case 'update_user':
-                    break;
-
-                /*  DELETE */
-                case 'delete_user':
+                /*  Delete Users */
+                case Intents.deleteUser:
                     break;
 
             }
