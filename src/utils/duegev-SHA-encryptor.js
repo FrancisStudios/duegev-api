@@ -1,3 +1,10 @@
+/**
+ *  ------ [ Property of Francis Studios ] ------
+ * ===========================
+ * github: https://github.com/francisstudios
+ * ©2025 Francis Studios Softwares by L.
+*/
+
 import { sha512 } from "sha512-crypt-ts";
 
 export class DuegevEncryptor {

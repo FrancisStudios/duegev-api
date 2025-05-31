@@ -1,3 +1,10 @@
+/**
+ *  ------ [ Property of Francis Studios ] ------
+ * ===========================
+ * github: https://github.com/francisstudios
+ * ©2025 Francis Studios Softwares by L.
+*/
+
 import express from 'express';
 import process from 'process';
 import cors from 'cors'

@@ -1,3 +1,9 @@
+/**
+ *  ------ [ Property of Francis Studios ] ------
+ * ===========================
+ * github: https://github.com/francisstudios
+ * ©2025 Francis Studios Softwares by L.
+*/
 import DuegevAPIConstants from "../../constants.js";
 import Intents from "../../model/intents.js";
 import MessageInterface from "../../utils/message.interface.js";
