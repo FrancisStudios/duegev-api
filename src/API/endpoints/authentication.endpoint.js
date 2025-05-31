@@ -4,6 +4,7 @@
  * github: https://github.com/francisstudios
  * ©2025 Francis Studios Softwares by L.
 */
+
 import DuegevAPIConstants from "../../constants.js";
 import Intents from "../../model/intents.js";
 import MessageInterface from "../../utils/message.interface.js";
@@ -34,7 +35,7 @@ export default class DuegevAPIAuth {
 
                     console.log(
                         DuegevAPIConstants.RequestToUsersEndpoint,
-                        req.query.user ? `for following user ${req.query.user}` : ``
+                        req.query.user ? `${DuegevAPIConstants.forFollowingUserWording} ${req.query.user}` : ``
                     );
 
                     const response = JSON.stringify(result);

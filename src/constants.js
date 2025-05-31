@@ -10,7 +10,8 @@ const DuegevAPIConstants = {
     DbConnectionSuccessful: '🔌 Mongodb connection established ------------- ✅',
     DbConnectionUpFailed: '🔌 Mongodb connection failed ------------------ ❌',
     DbConnectionBuilding: '🏗️ Building database connection, please wait ...',
-    RequestToUsersEndpoint: '👤 The /users endpoint was just requested'
+    RequestToUsersEndpoint: '👤 The /users endpoint was just requested',
+    forFollowingUserWording: 'for following user'
 }
 
 export default DuegevAPIConstants;
