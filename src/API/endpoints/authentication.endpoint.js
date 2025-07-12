@@ -17,7 +17,9 @@ export default class DuegevAPIAuth {
         const dbService = await DataBaseService.init();
         const connection = new Promise(
             (resolve) => {
-                dbService.getConnection().then(db => resolve(db));
+                dbService
+                    .getConnection()
+                    .then(db => resolve(db));
             }
         );
 
